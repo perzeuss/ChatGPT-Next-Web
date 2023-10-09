@@ -32,7 +32,7 @@ import LightIcon from "../icons/light.svg";
 import DarkIcon from "../icons/dark.svg";
 import AutoIcon from "../icons/auto.svg";
 import BottomIcon from "../icons/bottom.svg";
-import StopIcon from "../icons/pause.svg";
+import StopIcon from "../icons/cancel.svg";
 import RobotIcon from "../icons/robot.svg";
 
 import {
@@ -647,6 +647,21 @@ function _Chat() {
       trailing: true,
     },
   );
+
+  useEffect(() => {
+    // Set code copy button text from locale
+    if (window) {
+      const style = document.createElement("style");
+      style.type = "text/css";
+      const css = `
+      pre .copy-code-button:after {
+              content: "${Locale.Chat.Actions.Copy}" !important;
+          }
+      `;
+      style.appendChild(document.createTextNode(css));
+      document.head.appendChild(style);
+    }
+  }, []);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(measure, [userInput]);

@@ -4,6 +4,10 @@ import { SubmitKey } from "../store/config";
 const isApp = !!getClientConfig()?.isApp;
 
 const cn = {
+  App: {
+    Title: "i22 ChatGPT",
+    SubTitle: "你的个人助理在这里！",
+  },
   WIP: "该功能仍在开发中……",
   Error: {
     Unauthorized: isApp

@@ -2,6 +2,10 @@ import { SubmitKey } from "../store/config";
 import type { PartialLocaleType } from "./index";
 
 const de: PartialLocaleType = {
+  App: {
+    Title: "i22 ChatGPT",
+    SubTitle: "Deine persönlichen Assistenten sind hier!",
+  },
   WIP: "In Bearbeitung...",
   Error: {
     Unauthorized:
@@ -32,8 +36,8 @@ const de: PartialLocaleType = {
     },
     Send: "Senden",
     Config: {
-      Reset: "Reset to Default",
-      SaveAs: "Save as Mask",
+      Reset: "Auf Standard zurücksetzen",
+      SaveAs: "Persona speichern",
     },
   },
   Export: {
@@ -93,8 +97,8 @@ const de: PartialLocaleType = {
     },
     Mask: {
       Splash: {
-        Title: "Mask Splash Screen",
-        SubTitle: "Show a mask splash screen before starting new chat",
+        Title: "Persona Intro-Grafik",
+        SubTitle: "Eine Intro-Grafik für die Persona anzeigen",
       },
     },
     Prompt: {
@@ -196,48 +200,67 @@ const de: PartialLocaleType = {
     Sysmessage: "Du bist ein Assistent, der",
   },
   Mask: {
-    Name: "Mask",
+    Name: "KI Personas",
     Page: {
       Title: "Prompt Template",
-      SubTitle: (count: number) => `${count} prompt templates`,
-      Search: "Search Templates",
-      Create: "Create",
+      SubTitle: (count: number) => `${count} Prompt Templates`,
+      Search: "Prompt Templates durchsuchen",
+      Create: "Erstellen",
     },
     Item: {
-      Info: (count: number) => `${count} prompts`,
-      Chat: "Chat",
-      View: "View",
-      Edit: "Edit",
-      Delete: "Delete",
-      DeleteConfirm: "Confirm to delete?",
+      Info: (count: number) => `${count} Unterhaltungen`,
+      Chat: "Chatten",
+      View: "Anzeigen",
+      Edit: "Bearbeiten",
+      Delete: "Löschen",
+      DeleteConfirm: "Wirklich löschen?",
     },
     EditModal: {
       Title: (readonly: boolean) =>
-        `Edit Prompt Template ${readonly ? "(readonly)" : ""}`,
+        `Prompt Template bearbeiten ${readonly ? "(readonly)" : ""}`,
       Download: "Download",
-      Clone: "Clone",
+      Clone: "Kopieren",
     },
     Config: {
       Avatar: "Bot Avatar",
       Name: "Bot Name",
+      Sync: {
+        Title: "Globale einstellungen verwenden",
+        SubTitle: "Verwende die globalen Einstellungen der App",
+        Confirm:
+          "Bestätige das Überschreiben der aktuellen Einstellungen mit den globalen Einstellungen?",
+      },
+      HideContext: {
+        Title: "Kontext Prompts ausblenden",
+        SubTitle:
+          "Blende Kontext prompts aus, z.B. System Prompts oder Context des Personas",
+      },
+      Share: {
+        Title: "Teile diese Persona",
+        SubTitle:
+          "Generiere einen Link zu dieser Persona. Dieser Link funktioniert nur, wenn diese Persona importiert wurde.Du kannst Personas exportieren.",
+        Action: "Kopieren",
+      },
     },
   },
   NewChat: {
-    Return: "Return",
-    Skip: "Skip",
-    Title: "Pick a Mask",
-    SubTitle: "Chat with the Soul behind the Mask",
-    More: "Find More",
-    NotShow: "Not Show Again",
-    ConfirmNoShow: "Confirm to disable？You can enable it in settings later.",
+    Return: "Zurück",
+    Skip: "Überspringen",
+    Title: "Wähle eine Persona aus",
+    SubTitle:
+      "Unterhalte dich mit KI Personas, die vordefinierte Persönlichkeiten und Verhaltensweisen haben.",
+    More: "Weitere durchstöbern",
+    NotShow: "Nicht erneut anzeigen",
+    ConfirmNoShow:
+      "Wirklich nicht erneut anzeigen? Du kannest es später in den Einstellungen wieder einschalten.",
   },
 
   UI: {
-    Confirm: "Confirm",
-    Cancel: "Cancel",
-    Close: "Close",
-    Create: "Create",
-    Edit: "Edit",
+    Confirm: "Bestätigen",
+    Cancel: "Abbrechen",
+    Close: "Schließen",
+    Create: "Erstellen",
+    Edit: "Bearbeiten",
   },
   Exporter: {
     Model: "Modell",
