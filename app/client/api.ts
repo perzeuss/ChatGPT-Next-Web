@@ -1,4 +1,5 @@
 import { getClientConfig } from "../config/client";
+import { getServerSideConfig } from "../config/server";
 import { ACCESS_CODE_PREFIX } from "../constant";
 import { ChatMessage, ModelType, useAccessStore } from "../store";
 import { ChatGPTApi } from "./platforms/openai";
@@ -102,7 +103,13 @@ export class ClientApi {
     console.log("[Share]", messages, msgs);
     const clientConfig = getClientConfig();
     const proxyUrl = "/sharegpt";
-    const rawUrl = "https://sharegpt.com/api/conversations";
+    const getShareHostname = () => {
+      if (!clientConfig?.isApp) return "localhost";
+      const config = getServerSideConfig();
+      return config.shareGptHostname || "sharegpt.com";
+    };
+    const rawUrl = `https://${getShareHostname()}/api/conversations`;
+    console.log("share to urtl", rawUrl);
     const shareUrl = clientConfig?.isApp ? rawUrl : proxyUrl;
     const res = await fetch(shareUrl, {
       body: JSON.stringify({
@@ -118,7 +125,7 @@ export class ClientApi {
     const resJson = await res.json();
     console.log("[Share]", resJson);
     if (resJson.id) {
-      return `https://shareg.pt/${resJson.id}`;
+      return `https://${getShareHostname()}/c/${resJson.id}`;
     }
   }
 }

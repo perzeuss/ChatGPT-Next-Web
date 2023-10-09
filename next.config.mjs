@@ -74,7 +74,7 @@ if (mode !== "export") {
       },
       {
         source: "/sharegpt",
-        destination: "https://sharegpt.com/api/conversations",
+        destination: `https://${process.env.SHARE_GPT_HOSTNAME || 'sharegpt.com' }/api/conversations`,
       },
     ];
 
