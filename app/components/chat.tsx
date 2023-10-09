@@ -89,6 +89,7 @@ import { ChatCommandPrefix, useChatCommand, useCommand } from "../command";
 import { prettyObject } from "../utils/format";
 import { ExportMessageModal } from "./exporter";
 import { getClientConfig } from "../config/client";
+import { nanoid } from "nanoid";
 
 const Markdown = dynamic(async () => (await import("./markdown")).Markdown, {
   loading: () => <LoadingIcon />,
@@ -727,8 +728,23 @@ function _Chat() {
         matchedChatCommand.invoke();
         setUserInput("");
       } else {
-        // or fill the prompt
-        setUserInput(prompt.content);
+        // or set the system prompt
+        // setUserInput(prompt.content);
+
+        // modified to write prompt into context system prompt:
+
+        session.mask.context = [
+          {
+            date: new Date().toISOString(),
+            id: nanoid(),
+            role: "system",
+            content: prompt.content,
+          },
+          ...session.mask.context.filter(
+            (message) => message.role !== "system",
+          ),
+        ];
+        setUserInput("");
       }
       inputRef.current?.focus();
     }, 30);
