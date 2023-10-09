@@ -29,7 +29,7 @@ export enum SlotID {
 }
 
 export enum FileName {
-  Masks = "masks.json",
+  Masks = "prompt-templates.json",
   Prompts = "prompts.json",
 }
 
