@@ -21,9 +21,9 @@ const de: PartialLocaleType = {
       CompressedHistory: "Komprimierter Gedächtnis-Prompt",
       Export: "Alle Nachrichten als Markdown exportieren",
       Copy: "Kopieren",
-      Stop: "Stop",
+      Stop: "Stoppen",
       Retry: "Wiederholen",
-      Delete: "Delete",
+      Delete: "Löschen",
     },
     Rename: "Chat umbenennen",
     Typing: "Tippen...",
@@ -97,8 +97,9 @@ const de: PartialLocaleType = {
     },
     Mask: {
       Splash: {
-        Title: "Persona Intro-Grafik",
-        SubTitle: "Eine Intro-Grafik für die Persona anzeigen",
+        Title: "Persona Startseite",
+        SubTitle:
+          "Die Persona Startseite anzeigen. Deaktivieren damit 'KI Personas' immer direkt zur Liste der Prompt Templates führt.",
       },
     },
     Prompt: {
